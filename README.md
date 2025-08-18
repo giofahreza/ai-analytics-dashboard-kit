@@ -1,7 +1,7 @@
-# 🏗️ TINSIG AI Dashboard
+# 🤖 AI Analytics Dashboard Kit
 
-> **AI-Powered Mining Data Analysis Platform**  
-> A comprehensive dashboard for monitoring and analyzing Indonesian mining activities, including illegal mining detection, production tracking, and IUP (Mining Permit) management.
+> **Production-Ready Skeleton for Intelligent Data Platforms**  
+> A comprehensive starter template for building AI-powered analytics dashboards with FastAPI backend, Streamlit frontend, and natural language command processing. Perfect for business intelligence, monitoring systems, and data visualization applications.
 
 ---
 
@@ -23,40 +23,49 @@
 
 ## 🎯 Overview
 
-TINSIG AI Dashboard is a modern web application built to analyze and visualize mining data across Indonesia. The system integrates multiple data sources, provides real-time monitoring capabilities, and offers intuitive data visualization through charts, maps, and tables.
+AI Analytics Dashboard Kit is a modern, production-ready skeleton for building intelligent data visualization platforms. This template provides a complete foundation for creating AI-powered dashboards with real-time data integration, natural language command processing, and interactive visualizations.
+
+### Perfect For:
+- **Business Intelligence Platforms**: Sales, marketing, and operational dashboards
+- **Monitoring Systems**: Infrastructure, application, and security monitoring
+- **Data Analytics Applications**: Research, reporting, and insights platforms
+- **IoT Dashboards**: Sensor data visualization and analysis
+- **Financial Dashboards**: Trading, investment, and risk management platforms
 
 ### Key Capabilities:
-- **Real-time Data Monitoring**: Live tracking of mining activities
-- **Prompt-driven Interface**: Natural language commands for chart generation
-- **Multi-source Integration**: Aggregates data from multiple PHP APIs
+- **Natural Language Interface**: Command-driven chart and visualization creation
+- **Multi-source Integration**: Aggregate data from APIs, databases, and files
+- **Real-time Updates**: Live data streaming and automatic refresh
 - **Interactive Visualizations**: Dynamic charts, maps, and data tables
-- **Modal Error Handling**: User-friendly error feedback system
+- **Production-Ready**: Robust error handling, logging, and deployment scripts
 
 ---
 
 ## ✨ Features
 
 ### 🎨 **Interactive Dashboard**
-- **2-Page Interface**: Show Data and Settings pages
-- **Prompt-driven Charts**: Create visualizations using natural language
-- **Dynamic Filtering**: Filter data by location, date, and other criteria
-- **Real-time Updates**: Auto-refresh capabilities for live data
+- **Flexible Page Structure**: Customizable multi-page interface
+- **Natural Language Commands**: Create visualizations using plain English
+- **Dynamic Filtering**: Filter data by any field or criteria
+- **Real-time Updates**: Auto-refresh and live data streaming
 
 ### 📊 **Data Visualization**
-- **Charts**: Bar charts, pie charts, line graphs
-- **Maps**: Interactive geographic visualization using Folium
-- **Tables**: Sortable and filterable data tables
-- **Multi-chart Support**: Create and manage multiple visualizations
+- **Charts**: Bar, pie, line, scatter, and custom chart types
+- **Maps**: Interactive geographic visualization with clustering
+- **Tables**: Sortable, filterable, and exportable data grids
+- **Multi-visualization**: Create and manage unlimited chart combinations
 
-### 🔌 **Data Sources**
-- **Illegal Mining**: Detection and tracking of unauthorized mining activities
-- **Production Data**: Official mining production statistics
-- **IUP Records**: Mining permit and licensing information
+### 🔌 **Data Integration**
+- **API Connections**: REST API, GraphQL, and webhook support
+- **Database Support**: SQL databases, NoSQL, and cloud storage
+- **File Formats**: CSV, JSON, XML, and Excel file processing
+- **Real-time Streams**: WebSocket and event-driven data updates
 
-### 🚨 **Error Handling**
-- **Modal Alerts**: Visual feedback for errors and status updates
-- **Connection Monitoring**: Real-time API health checking
-- **Graceful Degradation**: Fallback mechanisms for service interruptions
+### 🚨 **Enterprise Features**
+- **Error Handling**: Comprehensive modal alerts and error recovery
+- **Security**: Authentication, authorization, and data encryption
+- **Scalability**: Horizontal scaling and load balancing ready
+- **Monitoring**: Built-in health checks and performance metrics
 
 ---
 
@@ -256,6 +265,44 @@ Border:         #dddddd  /* Card borders */
 
 ---
 
+## Using as Template
+
+### **Quick Template Setup**
+
+1. **Clone and Rename**
+   ```bash
+   git clone https://github.com/your-username/ai-analytics-dashboard-kit.git my-dashboard
+   cd my-dashboard
+   ```
+
+2. **Customize Data Models**
+   - Edit `backend/database/models.py` for your data structure
+   - Update `backend/api/data.py` endpoints for your domain
+   - Modify `frontend/services/api_client.py` for your APIs
+
+3. **Update Configuration**
+   - Edit `.env` file with your settings
+   - Customize `backend/config.py` for your environment
+   - Update PHP APIs in `source1/`, `source2/`, `source3/` directories
+
+4. **Brand Your Dashboard**
+   - Change app title in `frontend/app.py`
+   - Update colors and styling in the CSS section
+   - Replace example commands with your domain-specific ones
+
+### **Template Customization Guide**
+
+| Component | File | Customization |
+|-----------|------|---------------|
+| **Data Models** | `backend/database/models.py` | Replace with your entity classes |
+| **API Endpoints** | `backend/api/data.py` | Add endpoints for your data types |
+| **Frontend Commands** | `frontend/app.py` | Update command processing logic |
+| **Data Sources** | `source*/index.php` | Connect to your data sources |
+| **Styling** | `frontend/app.py` (CSS) | Customize colors and branding |
+| **Configuration** | `.env`, `config.py` | Set environment variables |
+
+---
+
 ## 🚀 Installation
 
 ### **Prerequisites**
@@ -264,28 +311,21 @@ Border:         #dddddd  /* Card borders */
 - **PHP 7.4+**
 - **Git**
 
-### **Quick Start**
+### **Quick Start Example**
 
-1. **Clone Repository**
-   ```bash
-   git clone <repository-url>
-   cd ai-agent/agent
-   ```
+```bash
+git clone https://github.com/your-username/ai-analytics-dashboard-kit.git
+cd ai-analytics-dashboard-kit
+./setup.sh
+./run_services.sh
+```
 
-2. **Run Setup Script**
-   ```bash
-   chmod +x setup.sh
-   ./setup.sh
-   ```
-
-3. **Start All Services**
-   ```bash
-   chmod +x run_services.sh
-   ./run_services.sh
-   ```
-
-4. **Access Dashboard**
-   - Open: http://localhost:8502
+Open http://localhost:8502 and try:
+```
+"Add chart view for sales data"
+"Show map visualization for user locations" 
+"Create table for recent transactions"
+```
 
 ### **Manual Installation**
 
@@ -334,30 +374,40 @@ This will start:
 
 ### **Basic Commands**
 
-The dashboard supports natural language commands:
+The dashboard supports natural language commands for any domain:
 
-#### **Adding Charts**
+#### **Business Analytics**
 ```
-"Add chart view for illegal mining in Jakarta"
-"Add map view for production data"
-"Add table view for IUP data"
-"Show pie chart for mining types"
-"Display bar chart for production by region"
+"Add sales chart for Q4 revenue"
+"Show customer distribution map"  
+"Display product performance table"
+"Create conversion funnel visualization"
 ```
 
-#### **Removing Charts**
+#### **System Monitoring**  
+```
+"Add server CPU usage chart"
+"Show error rate map by region"
+"Display recent alerts table"
+"Create uptime dashboard"
+```
+
+#### **IoT & Sensor Data**
+```
+"Add temperature trend chart"
+"Show device location map"
+"Display sensor readings table" 
+"Create environmental monitoring dashboard"
+```
+
+#### **Universal Commands**
 ```
 "Remove all charts"
-"Remove first chart"
-"Remove second chart"
-"Clear all visualizations"
-```
-
-#### **Modifying Charts**
-```
-"Change first chart to map view"
-"Convert second chart to table"
-"Update third chart to pie chart"
+"Remove first visualization"  
+"Clear dashboard"
+"Change second chart to map view"
+"Convert table to pie chart"
+"Update chart with latest data"
 ```
 
 ### **Navigation**
@@ -522,8 +572,13 @@ pip install -r requirements.txt
 
 ## 📄 License
 
-This project is developed for TINSIG AI Dashboard - Mining Data Analysis Platform.
+This project is an open-source template for AI Analytics Dashboard applications. Feel free to use, and modify for your private projects.
+
+### **Template Usage**
+- ✅ Modification allowed
+- ✅ Private use allowed
+- 📋 Attribution appreciated but not required
 
 ---
 
-**🎉 Happy Mining Data Analysis!**
+**🚀 Built with AI Analytics Dashboard Kit - Happy Building!**
