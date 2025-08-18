@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import uvicorn
 
-from api import query, data, health
+from api import data, health
 from database.db import init_db
 from config import settings
 from utils.logger import setup_logger
@@ -39,7 +39,6 @@ app.add_middleware(
 
 # Include routers
 app.include_router(health.router, prefix="/health", tags=["health"])
-app.include_router(query.router, prefix="/api/v1/query", tags=["query"])
 app.include_router(data.router, prefix="/api/v1/data", tags=["data"])
 
 @app.get("/")
