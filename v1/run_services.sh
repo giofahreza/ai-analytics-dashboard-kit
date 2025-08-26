@@ -106,14 +106,14 @@ start_backend() {
     print_status "BACKEND" "Starting FastAPI server..." $YELLOW
     
     cd "$AGENT_DIR/backend"
-    PYTHONPATH=.. "$VENV_PYTHON" -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload > /dev/null 2>&1 &
+    PYTHONPATH="$AGENT_DIR" "$VENV_PYTHON" -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload > /dev/null 2>&1 &
     local pid=$!
     
     # Wait for backend to start
     sleep 3
     if kill -0 $pid 2>/dev/null; then
         # Check if the service is responding
-        if curl -s http://127.0.0.1:8000/health > /dev/null; then
+        if curl -s http://127.0.0.1:8000/ > /dev/null; then
             print_status "BACKEND" "Running on http://127.0.0.1:8000 ✓" $GREEN
             return 0
         fi
@@ -127,13 +127,30 @@ start_backend() {
 start_frontend() {
     print_status "FRONTEND" "Starting Streamlit app..." $YELLOW
     
+    # Ensure Streamlit config directory exists
+    mkdir -p ~/.streamlit
+    
+    # Create Streamlit config if it doesn't exist
+    if [ ! -f ~/.streamlit/config.toml ]; then
+        cat > ~/.streamlit/config.toml << EOF
+[global]
+showWarningOnDirectExecution = false
+
+[browser]
+gatherUsageStats = false
+
+[server]
+headless = true
+EOF
+    fi
+    
     cd "$AGENT_DIR"
-    "$VENV_PYTHON" -m streamlit run frontend/app.py --server.port 8502 > /dev/null 2>&1 &
+    PYTHONPATH="$AGENT_DIR" "$VENV_PYTHON" -m streamlit run frontend/app.py --server.port 8502 > /dev/null 2>&1 &
     local pid=$!
     
     # Wait for frontend to start
-    sleep 3
-    if kill -0 $pid 2>/dev/null; then
+    sleep 5
+    if kill -0 $pid 2>/dev/null && curl -s http://localhost:8502 > /dev/null; then
         print_status "FRONTEND" "Running on http://localhost:8502 ✓" $GREEN
         return 0
     else
